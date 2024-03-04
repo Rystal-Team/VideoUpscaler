@@ -3,8 +3,19 @@ from src.upscale import upscale
 from threading import Thread, RLock
 
 
+if not os.path.exists(f"./input"):
+    os.mkdir(f"./input")
+if not os.path.exists(f"./output"):
+    os.mkdir(f"./output")
+if not os.path.exists(f"./temp"):
+    os.mkdir(f"./temp")
+if not os.path.exists(f"./weights"):
+    os.mkdir(f"./weights")
+
 customtkinter.set_appearance_mode("System")
 customtkinter.set_default_color_theme("green")
+
+app_title = "VideoUpscaler v1.0.1"
 
 
 class ScrollableCheckBoxFrame(customtkinter.CTkScrollableFrame):
@@ -45,7 +56,7 @@ class App(customtkinter.CTk):
         self.rlock = RLock()
 
         # window
-        self.title("VideoUpscaler v1.0.0")
+        self.title(app_title)
         self.iconbitmap("./app.ico")
         self.geometry(f"{800}x{600}")
         self.grid_columnconfigure(1, weight=1)
@@ -58,7 +69,7 @@ class App(customtkinter.CTk):
         self.sidebar_frame.grid_rowconfigure(4, weight=1)
         self.logo_label = customtkinter.CTkLabel(
             self.sidebar_frame,
-            text="VideoUpscaler v1.0.0",
+            text=app_title,
             font=customtkinter.CTkFont(size=20, weight="bold"),
         )
         self.logo_label.grid(row=0, column=0, padx=20, pady=(20, 10))
@@ -83,15 +94,15 @@ class App(customtkinter.CTk):
         )
         self.upscale_button.grid(row=4, column=0, padx=20, pady=10, sticky="n")
 
-        self.upscale_button = customtkinter.CTkButton(
+        self.show_input_button = customtkinter.CTkButton(
             self.sidebar_frame, text="Show Input", command=self.open_input_folder
         )
-        self.upscale_button.grid(row=5, column=0, padx=50, pady=10, sticky="n")
+        self.show_input_button.grid(row=5, column=0, padx=50, pady=10, sticky="n")
 
-        self.upscale_button = customtkinter.CTkButton(
+        self.show_output_button = customtkinter.CTkButton(
             self.sidebar_frame, text="Show Output", command=self.open_output_folder
         )
-        self.upscale_button.grid(row=6, column=0, padx=20, pady=10, sticky="n")
+        self.show_output_button.grid(row=6, column=0, padx=20, pady=10, sticky="n")
 
         self.appearance_mode_label = customtkinter.CTkLabel(
             self.sidebar_frame, text="Appearance Mode:", anchor="w"
