@@ -45,7 +45,7 @@ class App(customtkinter.CTk):
         self.rlock = RLock()
 
         # window
-        self.title("VideoUpscaler v1.0")
+        self.title("VideoUpscaler v1.0.0")
         self.iconbitmap("./app.ico")
         self.geometry(f"{800}x{600}")
         self.grid_columnconfigure(1, weight=1)
@@ -58,7 +58,7 @@ class App(customtkinter.CTk):
         self.sidebar_frame.grid_rowconfigure(4, weight=1)
         self.logo_label = customtkinter.CTkLabel(
             self.sidebar_frame,
-            text="VideoUpscaler v1.0",
+            text="VideoUpscaler v1.0.0",
             font=customtkinter.CTkFont(size=20, weight="bold"),
         )
         self.logo_label.grid(row=0, column=0, padx=20, pady=(20, 10))
