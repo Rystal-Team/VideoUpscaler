@@ -10,7 +10,7 @@
     · 
     <a href="https://github.com/Rystal-Team/VideoUpscaler/releases">Releases</a>
     <br />  
-    <a href="./README.jp.md">English</a>
+    <a href="./README.md">English</a>
     <br /> 
   </p>
 </div>
