@@ -50,11 +50,7 @@ def extract_image(video, filename):
 
 
 def upscale(video, filename, model):
-    if os.path.exists(f"./temp/{filename}/"):
-        try:
-            os.remove(f"./temp/{filename}/")
-        except:
-            pass
+    print(f"Processing {filename}!")
 
     ei_success, info = extract_image(video, filename)
     ea_success = extract_audio(video, filename)
@@ -108,5 +104,7 @@ def upscale(video, filename, model):
     )
     clip.close()
     shutil.rmtree(f"./temp/{filename}/")
+
+    print(f"Finished {filename}!")
 
     return
