@@ -37,7 +37,7 @@
 `app.py` を実行してアプリを起動する。
 
 追加事項： <br>
-もし君のグラフィックボードがCUDAをサポートしているなら, **CUDAサポートを備えたPyTorch** をインストールしてください。<br>
+もしあなたのグラフィックボードがCUDAをサポートしているなら, **CUDAサポートを備えたPyTorch** をインストールしてください。<br>
 https://pytorch.org/get-started/previous-versions/
 
 ## 使用しているフレームワーク
